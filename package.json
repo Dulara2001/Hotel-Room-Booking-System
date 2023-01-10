@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Dulara2001/Hotel-Room-Booking-System#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "mongoose": "^6.8.3",
     "nodemon": "^2.0.20"
   }
 }
