@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes ,Route, Link}from 'react-router-dom'
 import Homescreen from './screens/Homescreen';
+import Bookingscreen from './screens/Bookingscreen';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/home" element={<Homescreen/>}/>
+          <Route path='/book/:id' element={<Bookingscreen/>}/>
         </Routes>
 
       </Router>

@@ -6,6 +6,7 @@ const roomsRoute = require('./routes/roomsRoute')
 
 
 app.use('/api/rooms', roomsRoute)
+app.use(express.json())
 
 
 const PORT = process.env.PORT || 5000;
