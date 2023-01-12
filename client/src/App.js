@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/home" element={<Homescreen/>}/>
-          <Route path='/book/:id' element={<Bookingscreen/>}/>
+          <Route path='/book/:roomid' element={<Bookingscreen/>}/>
         </Routes>
 
       </Router>
