@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Navbar() {
+    // const user = JSON.parse(localStorage.getItem('currentUser'));
     return (
         <div>
             <nav class="navbar navbar-expand-lg">

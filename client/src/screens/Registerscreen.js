@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
+import Success from '../components/Success';
 
 function Registerscreen() {
 
@@ -7,6 +10,10 @@ function Registerscreen() {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+
+    const [loading, setloading] = useState(false);
+    const [error, seterror] = useState();
+    const [success , setSuccess] = useState();
 
     async function register() {
         
@@ -19,10 +26,20 @@ function Registerscreen() {
             }
             
             try {
+                setloading(true);
                 const result = (await axios.post('/api/users/register', user)).data
+                setloading(false)
+                setSuccess(true)
+
+                setname('')
+                setemail('')
+                setpassword('')
+                setcpassword('')
                 
             }catch(error){
-                console.log(error)
+                console.log(error);
+                setloading(true);
+                seterror(true)
             }
         }else{
             alert('password not matched')
@@ -32,9 +49,13 @@ function Registerscreen() {
 
     return (
         <div>
+
+            {loading && (<Loader/>)}
+            {error && (<Error/>)}
+            
             <div className='row justify-content-center mt-5'>
                 <div className='col-md-5 mt-5'>
-
+                {success && (<Success message='Registration Success'/>)}
                     <div className='bs'>
                         <h2>Register</h2>
                         <input type="text" className="form-control" placeholder="name"
